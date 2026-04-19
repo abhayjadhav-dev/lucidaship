@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-black text-white antialiased font-sans font-light leading-relaxed overflow-x-hidden;
+  }
+  
+  /* Subtle Noise Background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+    opacity: 0.025;
+    pointer-events: none;
+    z-index: 9997;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-light leading-tight;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-surface border border-line overflow-hidden transition-all duration-300 relative;
+  }
+  .glass-card:hover {
+    @apply border-muted -translate-y-1;
+  }
+  
+  .glass-input {
+    @apply w-full bg-surface border border-line text-white placeholder-dim font-sans font-light outline-none transition-all duration-300;
+  }
+  .glass-input:focus {
+    @apply border-accent bg-accent/5;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-3 font-mono text-[0.7rem] tracking-[0.15em] uppercase bg-accent text-black px-7 py-3 transition-colors duration-300 shadow-none hover:bg-white hover:-translate-y-0.5 transform;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-3 font-mono text-[0.7rem] tracking-[0.15em] uppercase bg-transparent border border-accent text-accent px-7 py-3 transition-all duration-300 hover:bg-accent hover:text-black hover:-translate-y-0.5 transform;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-3 font-mono text-[0.7rem] tracking-[0.15em] uppercase bg-transparent border border-line text-dim px-7 py-3 transition-colors duration-300 hover:border-white hover:text-white;
+  }
+
+  .tag {
+    @apply inline-block font-mono text-[0.58rem] tracking-[0.15em] uppercase text-dim px-3 py-1 border border-line transition-colors duration-300;
+  }
+  .tag:hover {
+    @apply border-accent text-accent;
+  }
+  
+  .bg-glow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse 70% 60% at 75% 50%, rgba(200,169,110,0.06) 0%, transparent 65%),
+                radial-gradient(ellipse 40% 40% at 20% 80%, rgba(200,169,110,0.04) 0%, transparent 60%);
+  }
+}
