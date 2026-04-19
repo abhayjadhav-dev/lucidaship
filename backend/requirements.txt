@@ -1,0 +1,31 @@
+# ── Core Framework ───────────────────────────────────────────
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+gunicorn==25.3.0
+
+# ── Data & ML ────────────────────────────────────────────────
+pandas==2.2.3
+scikit-learn==1.5.2
+joblib==1.4.2
+imbalanced-learn==0.12.4
+scipy==1.11.4
+numpy==1.26.4
+xgboost==2.1.4
+shap==0.45.1
+
+# ── Database (Turso / libSQL) ────────────────────────────────
+libsql-client==0.3.1
+
+# ── Authentication (Clerk JWT verification) ──────────────────
+python-jose[cryptography]==3.5.0
+httpx==0.28.1
+
+# ── API Utilities ────────────────────────────────────────────
+pydantic==2.10.4
+pydantic-settings==2.13.1
+python-multipart==0.0.22
+python-dotenv==1.2.2
+slowapi==0.1.9
+
+# ── Testing ──────────────────────────────────────────────────
+pytest==8.3.4
